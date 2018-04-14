@@ -11,24 +11,25 @@ library(fueleconomy)
 
 # You should now have access to the `vehicles` data frame
 # You can use `View()` to inspect it
-
+View(data.frame(vehicles))
 
 # Select the different manufacturers (makes) of the cars in this data set. 
 # Save this vector in a variable
-
+makes <- vehicles$make
 
 # Use the `unique()` function to determine how many different car manufacturers
 # are represented by the data set
-
+length(unique(makes))
 
 # Filter the data set for vehicles manufactured in 1997
+cars_1997 <- vehicles[vechicles$year == 1997,  ]
 
 
 # Arrange the 1997 cars by highway (`hwy`) gas milage
 # Hint: use the `order()` function to get a vector of indices in order by value
 # See also:
 # https://www.r-bloggers.com/r-sorting-a-data-frame-by-the-contents-of-a-column/
-
+cars_1997 <- cars_1997[order(cars_1997$hwy), ]
 
 # Mutate the 1997 cars data frame to add a column `average` that has the average
 # gas milage (between city and highway mpg) for each car
